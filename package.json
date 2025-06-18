@@ -1,0 +1,28 @@
+{
+  "name": "nuxt2-boilerplate",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "start": "nuxt start",
+    "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
+    "lint": "npm run lint:js"
+  },
+  "dependencies": {
+    "vue": "^2.7.10",
+    "nuxt": "^2.18.1",
+    "@nuxtjs/axios": "^5.13.6",
+    "vuetify": "^2.6.10",
+    "@nuxtjs/vuetify": "^1.12.3",
+    "core-js": "^3.19.3"
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.17.0",
+    "@nuxtjs/eslint-config": "^8.0.0",
+    "eslint": "^8.4.1",
+    "eslint-plugin-nuxt": "^3.1.0",
+    "eslint-plugin-vue": "^8.2.0"
+  }
+}

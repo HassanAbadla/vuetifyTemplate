@@ -1,0 +1,25 @@
+// Ref: https://github.com/nuxt-community/vuetify-module#customvariables
+//
+// The variables you want to modify
+// $font-size-root: 20px;
+
+// Custom color variables
+$primary: #1976d2;
+$secondary: #424242;
+$accent: #82b1ff;
+$error: #ff5252;
+$info: #2196f3;
+$success: #4caf50;
+$warning: #fb8c00;
+
+// Custom spacing
+$spacer: 8px;
+
+// Custom breakpoints (if needed)
+$grid-breakpoints: (
+  "xs": 0,
+  "sm": 600px,
+  "md": 960px,
+  "lg": 1264px,
+  "xl": 1904px,
+);
