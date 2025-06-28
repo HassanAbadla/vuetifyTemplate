@@ -23,6 +23,10 @@
           </v-list-item-content>
         </v-list-item>
       </v-list>
+      <div class="d-flex flex-column">
+        <v-btn>Logout</v-btn>
+        <v-btn>login</v-btn>
+      </div>
     </v-navigation-drawer>
 
     <v-app-bar :clipped-left="clipped" fixed app>
@@ -84,6 +88,16 @@
             icon: "mdi-chart-bubble",
             title: "Inspire",
             to: "/inspire",
+          },
+          {
+            icon: "mdi-account-alert",
+            title: "Lessons",
+            to: "/lesson",
+          },
+          {
+            icon: "mdi-account-box-multiple-outline",
+            title: "Arrays & Objects",
+            to: "/lessons/lesson1",
           },
         ],
         miniVariant: false,

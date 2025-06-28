@@ -5,6 +5,12 @@
         <NuxtLogo />
         <VuetifyLogo />
       </v-card>
+      <v-card class="ma-4 pa-4">
+        <v-chip>Lesson 1</v-chip>
+        <v-btn class="mx-2" fab dark small color="primary">
+          <v-icon dark> mdi-minus </v-icon>
+        </v-btn>
+      </v-card>
       <v-card>
         <v-card-title class="headline">
           Welcome to the Vuetify + Nuxt.js template
@@ -18,12 +24,12 @@
           <p>
             For more information on Vuetify, check out the
             <a
-              href="https://vuetifyjs.com"
+              href="https://google.com"
               target="_blank"
               rel="noopener noreferrer"
             >
-              documentation </a
-            >.
+              documentation
+            </a>
           </p>
           <p>
             If you have questions, please join the official
@@ -33,8 +39,8 @@
               rel="noopener noreferrer"
               title="chat"
             >
-              discord </a
-            >.
+              discord
+            </a>
           </p>
           <p>
             Find a bug? Report it on the github
@@ -44,8 +50,8 @@
               rel="noopener noreferrer"
               title="contribute"
             >
-              issue board </a
-            >.
+              issue board
+            </a>
           </p>
           <p>
             Thank you for developing with Vuetify and I look forward to bringing
@@ -81,12 +87,21 @@
       <v-card class="mt-4">
         <v-card-title>API Demo</v-card-title>
         <v-card-text>
-          <v-btn color="success" @click="fetchData" :loading="loading">
+          <v-btn color="success" :loading="loading" @click="fetchData">
             Test API Call
           </v-btn>
           <v-alert v-if="apiResponse" type="success" class="mt-3">
             API Response: {{ apiResponse }}
           </v-alert>
+          <div v-for="item in apiResponse" :key="item.id" class="pa-4">
+            <v-card class="d-inline-flex pa-2">
+              <v-img max-height="150" max-width="250" :src="item.image"></v-img>
+              <p>Name: {{ item.name }}</p>
+              <p>Description: {{ item.description }}</p>
+              <p>isDestroyed: {{ item.isDestroyed }}</p>
+            </v-card>
+            <v-divider class="ma-4"></v-divider>
+          </div>
           <v-alert v-if="apiError" type="error" class="mt-3">
             API Error: {{ apiError }}
           </v-alert>
@@ -106,6 +121,7 @@
         apiError: null,
       }
     },
+
     methods: {
       async fetchData() {
         this.loading = true
@@ -115,15 +131,20 @@
         try {
           // Example API call using the configured axios instance
           const response = await this.$axios.get(
-            "https://jsonplaceholder.typicode.com/posts/1"
+            "https://dragonball-api.com/api/planets"
           )
-          this.apiResponse = response.data.title
+          this.apiResponse = response.data.items
         } catch (error) {
           this.apiError = error.message
         } finally {
           this.loading = false
         }
       },
+    },
+    computed: {},
+    watcch: {},
+    mounted() {
+      // You can perform any initial setup here if needed
     },
   }
 </script>

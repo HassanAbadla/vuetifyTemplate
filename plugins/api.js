@@ -78,5 +78,6 @@ export default function ({ $axios, redirect, store }) {
   }
 
   // Inject API methods
+  // eslint-disable-next-line no-undef
   inject("api", api)
 }

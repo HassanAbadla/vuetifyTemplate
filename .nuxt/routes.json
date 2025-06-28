@@ -1,0 +1,32 @@
+[
+  {
+    "name": "inspire",
+    "path": "/inspire",
+    "component": "D:\\\\Projects\\\\vuetifyTemplate\\\\pages\\\\inspire.vue",
+    "chunkName": "pages/inspire"
+  },
+  {
+    "name": "lesson",
+    "path": "/lesson",
+    "component": "D:\\\\Projects\\\\vuetifyTemplate\\\\pages\\\\lesson.vue",
+    "chunkName": "pages/lesson"
+  },
+  {
+    "name": "x",
+    "path": "/x",
+    "component": "D:\\\\Projects\\\\vuetifyTemplate\\\\pages\\\\x\\\\index.vue",
+    "chunkName": "pages/x/index"
+  },
+  {
+    "name": "lessons-lesson1",
+    "path": "/lessons/lesson1",
+    "component": "D:\\\\Projects\\\\vuetifyTemplate\\\\pages\\\\lessons\\\\lesson1.vue",
+    "chunkName": "pages/lessons/lesson1"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "D:\\\\Projects\\\\vuetifyTemplate\\\\pages\\\\index.vue",
+    "chunkName": "pages/index"
+  }
+]
