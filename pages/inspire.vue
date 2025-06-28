@@ -51,6 +51,9 @@
         }
       },
     },
+    onMounted() {
+      this.getData()
+    },
   }
 </script>
 
