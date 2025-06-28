@@ -4,10 +4,8 @@ import { normalizeURL, decode } from 'ufo'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
+const _2f1a36aa = () => interopDefault(import('..\\pages\\ComponentLesson.vue' /* webpackChunkName: "pages/ComponentLesson" */))
 const _0d799e90 = () => interopDefault(import('..\\pages\\inspire.vue' /* webpackChunkName: "pages/inspire" */))
-const _37af5c1c = () => interopDefault(import('..\\pages\\lesson.vue' /* webpackChunkName: "pages/lesson" */))
-const _79524dd8 = () => interopDefault(import('..\\pages\\x\\index.vue' /* webpackChunkName: "pages/x/index" */))
-const _3c7915d8 = () => interopDefault(import('..\\pages\\lessons\\lesson1.vue' /* webpackChunkName: "pages/lessons/lesson1" */))
 const _130f8808 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
 
 const emptyFn = () => {}
@@ -22,21 +20,13 @@ export const routerOptions = {
   scrollBehavior,
 
   routes: [{
+    path: "/ComponentLesson",
+    component: _2f1a36aa,
+    name: "ComponentLesson"
+  }, {
     path: "/inspire",
     component: _0d799e90,
     name: "inspire"
-  }, {
-    path: "/lesson",
-    component: _37af5c1c,
-    name: "lesson"
-  }, {
-    path: "/x",
-    component: _79524dd8,
-    name: "x"
-  }, {
-    path: "/lessons/lesson1",
-    component: _3c7915d8,
-    name: "lessons-lesson1"
   }, {
     path: "/",
     component: _130f8808,
