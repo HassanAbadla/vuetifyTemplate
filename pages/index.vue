@@ -1,6 +1,6 @@
 <template>
   <v-row justify="center" align="center">
-    <v-col cols="12" sm="8" md="6">
+    <v-col cols="12" sm="12" md="12">
       <v-card class="logo py-4 d-flex justify-center">
         <NuxtLogo />
         <VuetifyLogo />
@@ -87,7 +87,7 @@
       <v-card class="mt-4">
         <v-card-title>API Demo</v-card-title>
         <v-card-text>
-          <v-btn color="success" :loading="loading" @click="fetchData">
+          <!-- <v-btn color="success" :loading="loading" @click="fetchData">
             Test API Call
           </v-btn>
           <v-alert v-if="apiResponse" type="success" class="mt-3">
@@ -104,8 +104,33 @@
           </div>
           <v-alert v-if="apiError" type="error" class="mt-3">
             API Error: {{ apiError }}
-          </v-alert>
+          </v-alert> -->
         </v-card-text>
+      </v-card>
+      <v-card v-if="apiResponse.length > 0" class="mt-4">
+        <v-data-table
+          :headers="headers"
+          :items="apiResponse"
+          :per-page="5"
+          class="elevation-1"
+        >
+          <template v-slot:item.image="{ item }">
+            <v-img :src="item.image" max-height="50" max-width="50"></v-img>
+          </template>
+          <template v-slot:item.isDestroyed="{ item }">
+            <v-chip :color="item.isDestroyed ? 'red' : 'green'" dark>
+              {{ item.isDestroyed ? "Destroyed" : "Not Destroyed" }}
+            </v-chip>
+          </template>
+          <template v-slot:item.actions="{ item }">
+            <v-btn
+              color="primary"
+              @click="() => $router.push(`/planets/${item.id}`)"
+            >
+              View Details
+            </v-btn>
+          </template>
+        </v-data-table>
       </v-card>
     </v-col>
   </v-row>
@@ -117,16 +142,24 @@
     data() {
       return {
         loading: false,
-        apiResponse: null,
-        apiError: null,
+        apiResponse: [],
+        apiError: [],
+        headers: [
+          { text: "ID", value: "id" },
+          { text: "Planet Image", value: "image" },
+          { text: "Planet Name", value: "name" },
+          { text: "Description", value: "description" },
+          { text: "isDestroyed", value: "isDestroyed" },
+          { text: "Actions", value: "actions" },
+        ],
       }
     },
 
     methods: {
       async fetchData() {
         this.loading = true
-        this.apiResponse = null
-        this.apiError = null
+        this.apiResponse = []
+        this.apiError = []
 
         try {
           // Example API call using the configured axios instance
@@ -143,8 +176,16 @@
     },
     computed: {},
     watcch: {},
-    mounted() {
+    async mounted() {
+      await this.fetchData()
       // You can perform any initial setup here if needed
     },
   }
 </script>
+
+<style>
+  .labelTrue {
+    color: red;
+    font-weight: bold;
+  }
+</style>

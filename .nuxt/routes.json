@@ -19,5 +19,12 @@
     "component": "D:\\\\Projects\\\\vuetifyTemplate\\\\pages\\\\index.vue",
     "chunkName": "pages/index",
     "_name": "_130f8808"
+  },
+  {
+    "name": "planets-id",
+    "path": "/planets/:id?",
+    "component": "D:\\\\Projects\\\\vuetifyTemplate\\\\pages\\\\planets\\\\_id.vue",
+    "chunkName": "pages/planets/_id",
+    "_name": "_7d5ce60e"
   }
 ]

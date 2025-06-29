@@ -64,7 +64,8 @@
     },
     computed: {},
     async mounted() {
-      await this.fetchPlanets()
+      // await this.fetchPlanets()
+      this.fetchPlanets()
     },
   }
 </script>

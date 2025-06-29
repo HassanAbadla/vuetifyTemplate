@@ -7,6 +7,7 @@ import scrollBehavior from './router.scrollBehavior.js'
 const _2f1a36aa = () => interopDefault(import('..\\pages\\ComponentLesson.vue' /* webpackChunkName: "pages/ComponentLesson" */))
 const _0d799e90 = () => interopDefault(import('..\\pages\\inspire.vue' /* webpackChunkName: "pages/inspire" */))
 const _130f8808 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
+const _7d5ce60e = () => interopDefault(import('..\\pages\\planets\\_id.vue' /* webpackChunkName: "pages/planets/_id" */))
 
 const emptyFn = () => {}
 
@@ -31,6 +32,10 @@ export const routerOptions = {
     path: "/",
     component: _130f8808,
     name: "index"
+  }, {
+    path: "/planets/:id?",
+    component: _7d5ce60e,
+    name: "planets-id"
   }],
 
   fallback: false
