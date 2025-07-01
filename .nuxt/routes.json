@@ -2,29 +2,25 @@
   {
     "name": "ComponentLesson",
     "path": "/ComponentLesson",
-    "component": "D:\\\\Projects\\\\vuetifyTemplate\\\\pages\\\\ComponentLesson.vue",
-    "chunkName": "pages/ComponentLesson",
-    "_name": "_2f1a36aa"
+    "component": "C:\\\\Users\\\\hasan\\\\Documents\\\\vuetifyTemplate\\\\pages\\\\ComponentLesson.vue",
+    "chunkName": "pages/ComponentLesson"
   },
   {
     "name": "inspire",
     "path": "/inspire",
-    "component": "D:\\\\Projects\\\\vuetifyTemplate\\\\pages\\\\inspire.vue",
-    "chunkName": "pages/inspire",
-    "_name": "_0d799e90"
+    "component": "C:\\\\Users\\\\hasan\\\\Documents\\\\vuetifyTemplate\\\\pages\\\\inspire.vue",
+    "chunkName": "pages/inspire"
   },
   {
     "name": "index",
     "path": "/",
-    "component": "D:\\\\Projects\\\\vuetifyTemplate\\\\pages\\\\index.vue",
-    "chunkName": "pages/index",
-    "_name": "_130f8808"
+    "component": "C:\\\\Users\\\\hasan\\\\Documents\\\\vuetifyTemplate\\\\pages\\\\index.vue",
+    "chunkName": "pages/index"
   },
   {
     "name": "planets-id",
     "path": "/planets/:id?",
-    "component": "D:\\\\Projects\\\\vuetifyTemplate\\\\pages\\\\planets\\\\_id.vue",
-    "chunkName": "pages/planets/_id",
-    "_name": "_7d5ce60e"
+    "component": "C:\\\\Users\\\\hasan\\\\Documents\\\\vuetifyTemplate\\\\pages\\\\planets\\\\_id.vue",
+    "chunkName": "pages/planets/_id"
   }
 ]

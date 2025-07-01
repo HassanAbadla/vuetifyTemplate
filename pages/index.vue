@@ -87,24 +87,7 @@
       <v-card class="mt-4">
         <v-card-title>API Demo</v-card-title>
         <v-card-text>
-          <!-- <v-btn color="success" :loading="loading" @click="fetchData">
-            Test API Call
-          </v-btn>
-          <v-alert v-if="apiResponse" type="success" class="mt-3">
-            API Response: {{ apiResponse }}
-          </v-alert>
-          <div v-for="item in apiResponse" :key="item.id" class="pa-4">
-            <v-card class="d-inline-flex pa-2">
-              <v-img max-height="150" max-width="250" :src="item.image"></v-img>
-              <p>Name: {{ item.name }}</p>
-              <p>Description: {{ item.description }}</p>
-              <p>isDestroyed: {{ item.isDestroyed }}</p>
-            </v-card>
-            <v-divider class="ma-4"></v-divider>
-          </div>
-          <v-alert v-if="apiError" type="error" class="mt-3">
-            API Error: {{ apiError }}
-          </v-alert> -->
+  
         </v-card-text>
       </v-card>
       <v-card v-if="planets.length > 0" class="mt-4">

@@ -18,7 +18,7 @@
   import CardComponent from "../components/CardComponent.vue"
   export default {
     name: "ComponentLesson",
-    compnents: { CardComponent },
+    components: { CardComponent },
     layout: "default",
     data() {
       return {
