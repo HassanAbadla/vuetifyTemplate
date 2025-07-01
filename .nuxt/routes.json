@@ -14,6 +14,13 @@
     "_name": "_0d799e90"
   },
   {
+    "name": "products",
+    "path": "/products",
+    "component": "D:\\\\Projects\\\\vuetifyTemplate\\\\pages\\\\products\\\\index.vue",
+    "chunkName": "pages/products/index",
+    "_name": "_612ca724"
+  },
+  {
     "name": "index",
     "path": "/",
     "component": "D:\\\\Projects\\\\vuetifyTemplate\\\\pages\\\\index.vue",
