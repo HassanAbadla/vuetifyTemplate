@@ -12,6 +12,12 @@
     "chunkName": "pages/inspire"
   },
   {
+    "name": "products",
+    "path": "/products",
+    "component": "C:\\\\Users\\\\hasan\\\\Documents\\\\vuetifyTemplate\\\\pages\\\\products\\\\index.vue",
+    "chunkName": "pages/products/index"
+  },
+  {
     "name": "index",
     "path": "/",
     "component": "C:\\\\Users\\\\hasan\\\\Documents\\\\vuetifyTemplate\\\\pages\\\\index.vue",
