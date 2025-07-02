@@ -95,6 +95,11 @@
             title: "Products",
             to: "/products",
           },
+          {
+            icon: "mdi-repeat",
+            title: "Food",
+            to: "/food",
+          },
         ],
         miniVariant: false,
         right: true,

@@ -7,6 +7,13 @@
     "_name": "_2f1a36aa"
   },
   {
+    "name": "food",
+    "path": "/food",
+    "component": "D:\\\\Projects\\\\vuetifyTemplate\\\\pages\\\\food.vue",
+    "chunkName": "pages/food",
+    "_name": "_18b8ce98"
+  },
+  {
     "name": "inspire",
     "path": "/inspire",
     "component": "D:\\\\Projects\\\\vuetifyTemplate\\\\pages\\\\inspire.vue",
