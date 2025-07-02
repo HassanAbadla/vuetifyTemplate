@@ -112,4 +112,22 @@ export const actions = {
       console.error("Error creating food:", error)
     }
   },
+
+
+  async deleteFood({ commit }, foodId) {
+    try {
+      await this.$axios.delete(`http://127.0.0.1:8000/api/foods/${foodId}`);
+      commit('deleteFood', foodId);
+    } catch (error) {
+      console.error('Error deleting food:', error);
+    }
+  },
+  async editFood({ commit }, updatedFood) {
+    try {
+      const response = await this.$axios.put(`http://127.0.0.1:8000/api/foods/${updatedFood.id}`, updatedFood);
+      commit('editFood', response.data);
+    } catch (error) {
+      console.error('Error editing food:', error);
+    }
+  },
 }
