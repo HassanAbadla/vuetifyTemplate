@@ -9,6 +9,12 @@ export const mutations = {
   setProducts(state, products) {
     state.products = products
   },
+  newProduct(state, product) {
+    state.products.unshift(product)
+  },
+  remove_product(state, id) {
+    state.products = state.products.filter((product) => product.id !== id)
+  },
 }
 
 export const actions = {
@@ -28,14 +34,39 @@ export const actions = {
     }
   },
 
-  async getProducts() {
+  async getProducts({ commit }) {
     try {
-      const response = await this.$axios.get(
-        "https://fakestoreapi.com/products"
-      )
-      this.commit("setProducts", response.data)
+      const response = await this.$axios.get("https://dummyjson.com/products")
+      console.log("Products fetched successfully:", response.data.products)
+
+      commit("setProducts", response.data.products)
     } catch (error) {
       console.error("Error fetching products:", error)
+    }
+  },
+  async createProduct({ commit }, product) {
+    console.log("Creating product:", product)
+
+    try {
+      let item = product
+      commit("newProduct", item) // Update the products state with the new product
+      const response = await this.$axios.post(
+        "https://dummyjson.com/products/add",
+        product
+      )
+    } catch (error) {
+      console.error("Error creating product:", error)
+    }
+  },
+  async deleteProduct({ commit }, item) {
+    console.log("Removing product:", item)
+    try {
+      // Assuming you have an API endpoint to delete the product
+      await this.$axios.delete(`https://dummyjson.com/products/${item.id}`)
+      commit("remove_product", item.id)
+      console.log("Product removed successfully")
+    } catch (error) {
+      console.error("Error removing product:", error)
     }
   },
 }

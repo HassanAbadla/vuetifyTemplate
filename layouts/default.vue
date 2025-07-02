@@ -90,6 +90,11 @@
             title: "Componnent Lesson",
             to: "/ComponentLesson",
           },
+          {
+            icon: "mdi-repeat",
+            title: "Products",
+            to: "/products",
+          },
         ],
         miniVariant: false,
         right: true,
