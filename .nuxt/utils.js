@@ -202,7 +202,7 @@ export async function setContext (app, context) {
       payload: context.payload,
       error: context.error,
       base: app.router.options.base,
-      env: {"API_BASE_URL":"http://localhost:3000/api"}
+      env: {"API_BASE_URL":"https://food.outcropmediaa.com"}
     }
     // Only set once
 

@@ -68,7 +68,7 @@ const createAxiosInstance = axiosOptions => {
 
   // Setup interceptors
   setupDebugInterceptor(axios)
-  setupCredentialsInterceptor(axios)
+
   setupProgress(axios)
   axiosRetry(axios, {"retries":3})
 
@@ -101,17 +101,6 @@ const setupDebugInterceptor = axios => {
       }
 
       return res
-  })
-}
-
-const setupCredentialsInterceptor = axios => {
-  // Send credentials only to relative and API Backend requests
-  axios.onRequest(config => {
-    if (config.withCredentials === undefined) {
-      if (!/^https?:\/\//i.test(config.url) || config.url.indexOf(config.baseURL) === 0) {
-        config.withCredentials = true
-      }
-    }
   })
 }
 
@@ -191,15 +180,16 @@ export default (ctx, inject) => {
   const runtimeConfig = ctx.$config && ctx.$config.axios || {}
   // baseURL
   const baseURL = process.browser
-    ? (runtimeConfig.browserBaseURL || runtimeConfig.browserBaseUrl || runtimeConfig.baseURL || runtimeConfig.baseUrl || 'http://localhost:3000/api')
-      : (runtimeConfig.baseURL || runtimeConfig.baseUrl || process.env._AXIOS_BASE_URL_ || 'http://localhost:3000/api')
+    ? (runtimeConfig.browserBaseURL || runtimeConfig.browserBaseUrl || runtimeConfig.baseURL || runtimeConfig.baseUrl || '/')
+      : (runtimeConfig.baseURL || runtimeConfig.baseUrl || process.env._AXIOS_BASE_URL_ || 'https://food.outcropmediaa.com')
 
   // Create fresh objects for all default header scopes
   // Axios creates only one which is shared across SSR requests!
   // https://github.com/mzabriskie/axios/blob/master/lib/defaults.js
   const headers = {
     "common": {
-        "Accept": "application/json, text/plain, */*"
+        "Accept": "application/json, text/plain, */*",
+        "Content-Type": "application/json"
     },
     "delete": {},
     "get": {},
