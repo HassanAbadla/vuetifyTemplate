@@ -1,6 +1,7 @@
 export const state = () => ({
   planets: [],
   products: [],
+  foods: [],
 })
 export const mutations = {
   setPlanets(state, planets) {
@@ -15,6 +16,23 @@ export const mutations = {
   remove_product(state, id) {
     state.products = state.products.filter((product) => product.id !== id)
   },
+  // //////////////////////////////////
+  setFoods(state, foods) {
+    state.foods = foods
+  },
+  // Add a new food item to the state
+  addFood(state, food) {
+    state.foods.unshift(food)
+  },
+  deleteFood(state, foodId) {
+    state.foods = state.foods.filter((food) => food.id !== foodId)
+  },
+  editFood(state, updatedFood) {
+    const index = state.foods.findIndex((food) => food.id === updatedFood.id)
+    if (index !== -1) {
+      state.foods.splice(index, 1, updatedFood)
+    }
+  }
 }
 
 export const actions = {
@@ -67,6 +85,16 @@ export const actions = {
       console.log("Product removed successfully")
     } catch (error) {
       console.error("Error removing product:", error)
+    }
+  },
+  // //////////////////////////////////
+  async fetchFoods({ commit }) {
+    try {
+      const response = await this.$axios.get("http://127.0.0.1:8000/api/foods/")
+      console.log("Foods fetched successfully:", response.data)
+      commit("setFoods", response.data)
+    } catch (error) {
+      console.error("Error fetching foods:", error)
     }
   },
 }

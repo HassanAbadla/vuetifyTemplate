@@ -1,12 +1,19 @@
 <template>
     <div>
         <h1> Hello in Food Page</h1>
-        <FoodComponent :selectedItem="selectedItem" />
+        <div v-if="selectedItems.length">
+            <FoodComponent v-for="item in selectedItems" :key="item.id" :selectedItem="item" />
+        </div>
+        <div v-else>
+            <p>No foods available.</p>
+        </div>
     </div>
 </template>
 
 <script>
 import FoodComponent from '../components/FoodComponent.vue'
+import { mapState, mapActions } from 'vuex'
+
 
 export default {
     name: 'food',
@@ -20,14 +27,18 @@ export default {
             loading: false,
             apiResponse: [],
             apiError: null,
-            selectedItem: {
-                id: 1,
-                name: 'Makloba',
-                description: 'A traditional Middle Eastern dish',
-                price: 12.99,
-                image: 'https://t4.ftcdn.net/jpg/02/57/02/67/360_F_257026750_ckdlvzplvocnCn8aGQhdD8tZ430O4hgX.jpg'
-            },
+            selectedItems: [],
         }
+    },
+    computed: {
+        ...mapState(['foods'])
+    },
+    methods: {
+        ...mapActions(['fetchFoods'])
+    },
+    async mounted() {
+        await this.fetchFoods()
+        this.selectedItems = this.foods || []
     },
     
 }
