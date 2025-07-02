@@ -24,7 +24,8 @@
             </v-card>
         </v-dialog>
         <div class="mt-4 d-flex flex-wrap" v-if="selectedItems.length">
-            <FoodComponent v-for="item in selectedItems" :key="item.id" :selectedItem="item" @edit="openEditDialog" />
+            <FoodComponent v-for="item in selectedItems" :key="item.id" :selectedItem="item" @edit="openEditDialog"
+                @delete="deleteFoodItem" />
         </div>
         <div v-else>
             <p>No foods available.</p>
