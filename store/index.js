@@ -116,7 +116,7 @@ export const actions = {
 
   async deleteFood({ commit }, foodId) {
     try {
-      await this.$axios.delete(`http://127.0.0.1:8000/api/foods/${foodId}`);
+      await this.$axios.delete(`https://food.outcropmediaa.com/api/foods/${foodId}`);
       commit('deleteFood', foodId);
     } catch (error) {
       console.error('Error deleting food:', error);
@@ -124,7 +124,7 @@ export const actions = {
   },
   async editFood({ commit }, updatedFood) {
     try {
-      const response = await this.$axios.put(`http://127.0.0.1:8000/api/foods/${updatedFood.id}`, updatedFood);
+      const response = await this.$axios.put(`https://food.outcropmediaa.com/api/foods/${updatedFood.id}`, updatedFood);
       commit('editFood', response.data);
     } catch (error) {
       console.error('Error editing food:', error);
