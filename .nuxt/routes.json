@@ -3,30 +3,42 @@
     "name": "ComponentLesson",
     "path": "/ComponentLesson",
     "component": "C:\\\\Users\\\\hasan\\\\Documents\\\\vuetifyTemplate\\\\pages\\\\ComponentLesson.vue",
-    "chunkName": "pages/ComponentLesson"
+    "chunkName": "pages/ComponentLesson",
+    "_name": "_0a1b9f76"
+  },
+  {
+    "name": "food",
+    "path": "/food",
+    "component": "C:\\\\Users\\\\hasan\\\\Documents\\\\vuetifyTemplate\\\\pages\\\\food.vue",
+    "chunkName": "pages/food",
+    "_name": "_4794bf3e"
   },
   {
     "name": "inspire",
     "path": "/inspire",
     "component": "C:\\\\Users\\\\hasan\\\\Documents\\\\vuetifyTemplate\\\\pages\\\\inspire.vue",
-    "chunkName": "pages/inspire"
+    "chunkName": "pages/inspire",
+    "_name": "_1a23242a"
   },
   {
     "name": "products",
     "path": "/products",
     "component": "C:\\\\Users\\\\hasan\\\\Documents\\\\vuetifyTemplate\\\\pages\\\\products\\\\index.vue",
-    "chunkName": "pages/products/index"
+    "chunkName": "pages/products/index",
+    "_name": "_73abf2be"
   },
   {
     "name": "index",
     "path": "/",
     "component": "C:\\\\Users\\\\hasan\\\\Documents\\\\vuetifyTemplate\\\\pages\\\\index.vue",
-    "chunkName": "pages/index"
+    "chunkName": "pages/index",
+    "_name": "_809ca7bc"
   },
   {
     "name": "planets-id",
     "path": "/planets/:id?",
     "component": "C:\\\\Users\\\\hasan\\\\Documents\\\\vuetifyTemplate\\\\pages\\\\planets\\\\_id.vue",
-    "chunkName": "pages/planets/_id"
+    "chunkName": "pages/planets/_id",
+    "_name": "_319d779f"
   }
 ]

@@ -1,4 +1,5 @@
 export { default as CardComponent } from '../..\\components\\CardComponent.vue'
+export { default as FoodComponent } from '../..\\components\\FoodComponent.vue'
 
 // nuxt/nuxt.js#8607
 function wrapFunctional(options) {
