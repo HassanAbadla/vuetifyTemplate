@@ -90,11 +90,26 @@ export const actions = {
   // //////////////////////////////////
   async fetchFoods({ commit }) {
     try {
-      const response = await this.$axios.get("http://127.0.0.1:8000/api/foods/")
+      const response = await this.$axios.get("https://food.outcropmediaa.com/api/foods")
       console.log("Foods fetched successfully:", response.data)
       commit("setFoods", response.data)
     } catch (error) {
       console.error("Error fetching foods:", error)
+    }
+  },
+  async createFood({ commit }, food) {
+    console.log("Creating food:", food)
+
+    try {
+      let item = food
+      commit("addFood", item) // Update the foods state with the new food
+      const response = await this.$axios.post(
+        "https://food.outcropmediaa.com/api/foods",
+        food
+      )
+      console.log("Food created successfully:", response.data)
+    } catch (error) {
+      console.error("Error creating food:", error)
     }
   },
 }
