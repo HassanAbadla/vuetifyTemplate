@@ -4,12 +4,14 @@ import { normalizeURL, decode } from 'ufo'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
-const _2f1a36aa = () => interopDefault(import('..\\pages\\ComponentLesson.vue' /* webpackChunkName: "pages/ComponentLesson" */))
-const _18b8ce98 = () => interopDefault(import('..\\pages\\food.vue' /* webpackChunkName: "pages/food" */))
-const _0d799e90 = () => interopDefault(import('..\\pages\\inspire.vue' /* webpackChunkName: "pages/inspire" */))
-const _612ca724 = () => interopDefault(import('..\\pages\\products\\index.vue' /* webpackChunkName: "pages/products/index" */))
-const _130f8808 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
-const _7d5ce60e = () => interopDefault(import('..\\pages\\planets\\_id.vue' /* webpackChunkName: "pages/planets/_id" */))
+const _620199ce = () => interopDefault(import('..\\pages\\Aorder.vue' /* webpackChunkName: "pages/Aorder" */))
+const _c519aeb8 = () => interopDefault(import('..\\pages\\ComponentLesson.vue' /* webpackChunkName: "pages/ComponentLesson" */))
+const _15c96782 = () => interopDefault(import('..\\pages\\food.vue' /* webpackChunkName: "pages/food" */))
+const _76f5eb89 = () => interopDefault(import('..\\pages\\inspire.vue' /* webpackChunkName: "pages/inspire" */))
+const _10b1ae88 = () => interopDefault(import('..\\pages\\orders\\index.vue' /* webpackChunkName: "pages/orders/index" */))
+const _162ceb1d = () => interopDefault(import('..\\pages\\products\\index.vue' /* webpackChunkName: "pages/products/index" */))
+const _7a06817e = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
+const _3e8b73a0 = () => interopDefault(import('..\\pages\\planets\\_id.vue' /* webpackChunkName: "pages/planets/_id" */))
 
 const emptyFn = () => {}
 
@@ -23,28 +25,36 @@ export const routerOptions = {
   scrollBehavior,
 
   routes: [{
+    path: "/Aorder",
+    component: _620199ce,
+    name: "Aorder"
+  }, {
     path: "/ComponentLesson",
-    component: _2f1a36aa,
+    component: _c519aeb8,
     name: "ComponentLesson"
   }, {
     path: "/food",
-    component: _18b8ce98,
+    component: _15c96782,
     name: "food"
   }, {
     path: "/inspire",
-    component: _0d799e90,
+    component: _76f5eb89,
     name: "inspire"
   }, {
+    path: "/orders",
+    component: _10b1ae88,
+    name: "orders"
+  }, {
     path: "/products",
-    component: _612ca724,
+    component: _162ceb1d,
     name: "products"
   }, {
     path: "/",
-    component: _130f8808,
+    component: _7a06817e,
     name: "index"
   }, {
     path: "/planets/:id?",
-    component: _7d5ce60e,
+    component: _3e8b73a0,
     name: "planets-id"
   }],
 

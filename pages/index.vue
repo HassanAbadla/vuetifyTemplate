@@ -131,11 +131,8 @@
             </v-chip>
           </template>
           <template v-slot:item.actions="{ item }">
-            <v-btn
-              color="primary"
-              @click="() => $router.push(`/planets/${item.id}`)"
-            >
-              View Details
+            <v-btn icon small @click.stop="openDialog(item)">
+              <v-icon small>mdi-eye</v-icon>
             </v-btn>
           </template>
         </v-data-table>
@@ -145,60 +142,60 @@
 </template>
 
 <script>
-  import { mapState, mapActions } from "vuex"
-  export default {
-    name: "IndexPage",
-    data() {
-      return {
-        search: "",
-        loading: false,
-        apiResponse: [],
-        apiError: [],
-        headers: [
-          { text: "ID", value: "id" },
-          { text: "Planet Image", value: "image" },
-          { text: "Planet Name", value: "name" },
-          { text: "Description", value: "description" },
-          { text: "isDestroyed", value: "isDestroyed" },
-          { text: "Actions", value: "actions" },
-        ],
-      }
-    },
+import { mapState, mapActions } from "vuex";
+export default {
+  name: "IndexPage",
+  data() {
+    return {
+      search: "",
+      loading: false,
+      apiResponse: [],
+      apiError: [],
+      headers: [
+        { text: "ID", value: "id" },
+        { text: "Planet Image", value: "image" },
+        { text: "Planet Name", value: "name" },
+        { text: "Description", value: "description" },
+        { text: "isDestroyed", value: "isDestroyed" },
+        { text: "Actions", value: "actions" },
+      ],
+    };
+  },
 
-    methods: {
-      ...mapActions(["fetchData"]),
-      // async fetchData() {
-      //   this.loading = true
-      //   this.apiResponse = []
-      //   this.apiError = []
+  methods: {
+    ...mapActions(["fetchData"]),
+    // async fetchData() {
+    //   this.loading = true
+    //   this.apiResponse = []
+    //   this.apiError = []
 
-      //   try {
-      //     // Example API call using the configured axios instance
-      //     const response = await this.$axios.get(
-      //       "https://dragonball-api.com/api/planets"
-      //     )
-      //     this.apiResponse = response.data.items
-      //   } catch (error) {
-      //     this.apiError = error.message
-      //   } finally {
-      //     this.loading = false
-      //   }
-      // },
-    },
-    computed: {
-      ...mapState(["planets"]),
-    },
-    watcch: {},
-    async mounted() {
-      await this.fetchData()
-      // You can perform any initial setup here if needed
-    },
-  }
+    //   try {
+    //     // Example API call using the configured axios instance
+    //     const response = await this.$axios.get(
+    //       "https://dragonball-api.com/api/planets"
+    //     )
+    //     this.apiResponse = response.data.items
+    //   } catch (error) {
+    //     this.apiError = error.message
+    //   } finally {
+    //     this.loading = false
+    //   }
+    // },
+  },
+  computed: {
+    ...mapState(["planets"]),
+  },
+  watcch: {},
+  async mounted() {
+    await this.fetchData();
+    // You can perform any initial setup here if needed
+  },
+};
 </script>
 
 <style>
-  .labelTrue {
-    color: red;
-    font-weight: bold;
-  }
+.labelTrue {
+  color: red;
+  font-weight: bold;
+}
 </style>
