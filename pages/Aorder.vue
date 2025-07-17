@@ -102,6 +102,7 @@ export default {
     return {
       dialog: false,
       drawer: false,
+      SelectedItem: {},
       orderForm: {
         order_id: null,
         food_id: null,
@@ -127,7 +128,11 @@ export default {
       "deleteOrder",
     ]),
     submitOrderItem() {
-      this.$store.dispatch("createOrderItem", this.orderForm);
+      const itemId = this.SelectedItem.id;
+      this.$store.dispatch("updateOrderItem", {
+        id: itemId,
+        data: this.orderForm,
+      });
       this.drawer = false;
     },
     closeDrawer() {
@@ -145,6 +150,7 @@ export default {
     },
 
     editOrderDialog(item) {
+      this.SelectedItem = item;
       this.orderForm = {
         order_id: item.order_id,
         food_id: item.food_id,
@@ -161,7 +167,7 @@ export default {
     this.fetchFood();
     this.fetchOrders();
     this.fetchOrderItems();
-    // this.deleteOrder(item.id);
+
     this.createOrderItem();
   },
 };

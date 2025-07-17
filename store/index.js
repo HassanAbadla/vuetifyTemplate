@@ -47,6 +47,14 @@ export const mutations = {
   setOrderItem(state, orderItem) {
     state.orderItems.push(orderItem);
   },
+  updateOrderItem(state, { id, item }) {
+    const index = state.orderItems.findIndex(
+      (orderItem) => orderItem.id === id
+    );
+    if (index !== -1) {
+      state.orderItems.splice(index, 1, item);
+    }
+  },
 };
 
 export const actions = {
@@ -206,6 +214,20 @@ export const actions = {
       console.log("Order removed successfully");
     } catch (error) {
       console.error("Error removing order:", error);
+    }
+  },
+  async updateOrderItem({ commit }, { id, item }) {
+    console.log("Removing order item:", item);
+    try {
+      // Assuming you have an API endpoint to delete the order item
+      await this.$axios.put(
+        `https://food.outcropmediaa.com/api/order-items/${id}`,
+        item
+      );
+      commit("updateOrderItem", { id, item });
+      console.log("Order item update successfully");
+    } catch (error) {
+      console.error("Error update order item:", error);
     }
   },
 };
