@@ -12,7 +12,7 @@
         class="elevation-1"
       >
         <template v-slot:item.actions="{ item }">
-          <v-btn icon small @click="dialog = true">
+          <v-btn icon small @click="viewOrderDetails(item)">
             <v-icon small>mdi-eye</v-icon>
           </v-btn>
 
@@ -35,14 +35,38 @@
     <!-- Dialog Component -->
     <v-dialog v-model="dialog" max-width="400px">
       <v-card>
-        <v-card-title class="headline">Details</v-card-title>
-        <v-card-text> Here are the details you wanted to view. </v-card-text>
+        <v-card-title class="headline">Order Details</v-card-title>
+        <v-card-text v-if="SelectedItem">
+          <div>
+            <v-img
+              :src="SelectedItem.food?.image"
+              max-height="100"
+              max-width="100"
+              class="mb-4"
+              cover
+            ></v-img>
+          </div>
+          <div><strong>Order ID:</strong> {{ SelectedItem.order_id }}</div>
+          <div><strong>Food:</strong> {{ SelectedItem.food?.name }}</div>
+          <div><strong>Quantity:</strong> {{ SelectedItem.quantity }}</div>
+          <div><strong>Price:</strong> {{ SelectedItem.price }}</div>
+        </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn color="primary" text @click="dialog = false">Close</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
+    <!--<v-dialog v-model="dialog" max-width="400px">
+      <v-card>
+        <v-card-title class="headline">Details</v-card-title>
+        <v-card-text> Here are the details you wanted to view. </v-card-text>
+
+        <v-card-actions>
+          <v-btn color="primary" text @click="dialog = false">Close</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>-->
 
     <v-navigation-drawer v-model="drawer" absolute temporary right width="500">
       <v-card class="pa-4 ma-2">
@@ -126,15 +150,26 @@ export default {
       "fetchFood",
       "createOrderItem",
       "deleteOrder",
+      "updateOrderItem",
     ]),
     submitOrderItem() {
-      const itemId = this.SelectedItem.id;
-      this.$store.dispatch("updateOrderItem", {
-        id: itemId,
-        data: this.orderForm,
-      });
+      this.$store.dispatch("createOrderItem", this.orderForm);
       this.drawer = false;
+      this.orderForm = {
+        order_id: null,
+        food_id: null,
+        quantity: 1,
+        price: 0,
+      };
     },
+    //submitOrderItem() {
+    // const itemId = this.SelectedItem.id;
+    // this.updateOrderItem({
+    //   id: itemId,
+    //   data: this.orderForm,
+    // });
+    // this.drawer = false;
+    //},
     closeDrawer() {
       this.drawer = false;
       this.orderForm = {
@@ -144,7 +179,10 @@ export default {
         price: 0,
       };
     },
-
+    viewOrderDetails(item) {
+      this.SelectedItem = item;
+      this.dialog = true;
+    },
     async removeOrder(item) {
       await this.deleteOrder({ id: item.order_id });
     },
