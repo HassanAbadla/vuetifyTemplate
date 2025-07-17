@@ -41,17 +41,29 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Base URL for API requests
-    baseURL: process.env.API_BASE_URL || "http://localhost:3000/api",
+    baseURL: process.env.API_BASE_URL || "https://food.outcropmediaa.com",
     // Automatically set request headers
-    credentials: true,
+    credentials: false,
     // Debug mode
     debug: process.env.NODE_ENV === "development",
     // Proxy configuration (optional)
-    proxy: false,
+    proxy: true,
     // Retry failed requests
     retry: { retries: 3 },
     // Request timeout
     timeout: 10000,
+    headers: {
+      common: {
+        "Content-Type": "application/json",
+      },
+    },
+  },
+  proxy: {
+    "/api/foods": {
+      target: "https://food.outcropmediaa.com",
+      pathRewrite: { "^/api/foods": "/api/foods" },
+      changeOrigin: true,
+    },
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
