@@ -5,12 +5,12 @@
         <h2>Orders</h2>
         <v-btn @click.stop="drawer = !drawer">Add an Order</v-btn>
       </div>
-      <v-data-table
-        :headers="headers"
-        :items="orderItems"
-        :items-per-page="5"
-        class="elevation-1"
-      >
+      <!-- Custom Table Component -->
+      <custom-table :headers="headers" :items="orderItems">
+        <template v-slot:item.image="{ item }">
+          <v-img :src="item.food.image" max-height="50" max-width="50"></v-img>
+        </template>
+
         <template v-slot:item.actions="{ item }">
           <v-btn icon small @click="viewOrderDetails(item)">
             <v-icon small>mdi-eye</v-icon>
@@ -24,12 +24,7 @@
             <v-icon small>mdi-pencil</v-icon>
           </v-btn>
         </template>
-
-        <!-- image -->
-        <template v-slot:item.image="{ item }">
-          <v-img :src="item.food.image" max-height="50" max-width="50"></v-img>
-        </template>
-      </v-data-table>
+      </custom-table>
     </v-card>
 
     <!-- Dialog Component -->
@@ -57,6 +52,7 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
+
     <!--<v-dialog v-model="dialog" max-width="400px">
       <v-card>
         <v-card-title class="headline">Details</v-card-title>
@@ -120,8 +116,10 @@
 
 <script>
 import { mapState, mapActions } from "vuex";
+import CustomTable from "@/components/CustomTable.vue";
 export default {
   name: "OrdersPage",
+  components: { CustomTable },
   data() {
     return {
       dialog: false,
@@ -162,14 +160,14 @@ export default {
         price: 0,
       };
     },
-    //submitOrderItem() {
-    // const itemId = this.SelectedItem.id;
-    // this.updateOrderItem({
-    //   id: itemId,
-    //   data: this.orderForm,
-    // });
-    // this.drawer = false;
-    //},
+    /*submitOrderItem() {
+    const itemId = this.SelectedItem.id;
+     this.updateOrderItem({
+       id: itemId,
+       data: this.orderForm,
+     });
+     this.drawer = false;
+    },*/
     closeDrawer() {
       this.drawer = false;
       this.orderForm = {

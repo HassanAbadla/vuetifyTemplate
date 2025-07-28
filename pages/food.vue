@@ -4,7 +4,24 @@
       <h2>Food</h2>
       <v-btn @click="openFormDialog">Add a Dish</v-btn>
     </div>
-    <div class="d-flex">
+
+    <CustomTable :headers="headers" :items="foods">
+      <template v-slot:item.image="{ item }">
+        <v-img :src="item.image" max-height="50" max-width="50" contain></v-img>
+      </template>
+      <template v-slot:item.actions="{ item }">
+        <v-btn icon small @click.stop="openDialog(item)">
+          <v-icon>mdi-eye</v-icon>
+        </v-btn>
+        <v-btn icon small @click.stop="openEditDialog(item)">
+          <v-icon>mdi-pencil</v-icon>
+        </v-btn>
+        <v-btn icon small @click.stop="openConfermDialog(item)">
+          <v-icon>mdi-delete</v-icon>
+        </v-btn>
+      </template>
+    </CustomTable>
+    <!--<div class="d-flex">
       <v-card
         v-for="item in foods"
         :key="item.id"
@@ -16,20 +33,18 @@
           <p>{{ item.name }}</p>
           <p>{{ item.price }}</p>
         </div>
-        <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn icon small @click.stop="openDialog(item)">
-            <v-icon>mdi-eye</v-icon>
-          </v-btn>
-          <v-btn icon small @click.stop="openEditDialog(item)">
-            <v-icon>mdi-pencil</v-icon>
-          </v-btn>
-          <v-btn icon small @click.stop="openConfermDialog(item)">
-            <v-icon>mdi-delete</v-icon>
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-    </div>
+      <v-card-actions>
+        <v-spacer></v-spacer>
+        <v-btn icon small @click.stop="openDialog(item)">
+          <v-icon>mdi-eye</v-icon>
+        </v-btn>
+        <v-btn icon small @click.stop="openEditDialog(item)">
+          <v-icon>mdi-pencil</v-icon>
+        </v-btn>
+        <v-btn icon small @click.stop="openConfermDialog(item)">
+          <v-icon>mdi-delete</v-icon>
+        </v-btn>
+      </v-card-actions>-->
 
     <!-- add dish dialog -->
     <v-dialog v-model="foodForm" max-width="600px" persistent>
@@ -78,99 +93,108 @@
 </template>
 
 <script>
-  import { mapState, mapActions } from "vuex"
-  export default {
-    name: "FoodPage",
-    data() {
-      return {
-        foodForm: false,
-        editForm: false,
-        selectedItem: {},
-        confirmDialog: false,
-        item: {
-          image: "",
-          name: "",
-          description: "",
-          price: 0,
-          ingredients: [],
-        },
-      }
-    },
-    methods: {
-      ...mapActions(["fetchFood", "createFood", "updateFood", "deleteFood"]),
+import { mapState, mapActions } from "vuex";
+import CustomTable from "@/components/CustomTable.vue";
+export default {
+  name: "FoodPage",
+  components: { CustomTable },
+  data() {
+    return {
+      foodForm: false,
+      editForm: false,
+      selectedItem: {},
+      confirmDialog: false,
+      item: {
+        image: "",
+        name: "",
+        description: "",
+        price: 0,
+        ingredients: [],
+      },
+      headers: [
+        { text: "Image", value: "image" },
+        { text: "Name", value: "name" },
+        { text: "Description", value: "description" },
+        { text: "Price", value: "price" },
+        { text: "Actions", value: "actions", sortable: false },
+      ],
+    };
+  },
+  methods: {
+    ...mapActions(["fetchFood", "createFood", "updateFood", "deleteFood"]),
 
-      //  View details
-      openDialog(item) {
-        // Logic to open a dialog with item details
-        console.log("Opening dialog for:", item)
-      },
-      openFormDialog() {
-        this.foodForm = true
-      },
-      async submitDish() {
-        !this.editForm
-          ? (this.item.ingredients = this.item.ingredients
-              .split(",")
-              .map((ingredient) => ingredient.trim()))
-          : (this.item.ingredients = this.item.ingredients)
-        this.editForm
-          ? await this.updateFood(this.item)
-          : await this.createFood(this.item)
-        this.foodForm = false
-        this.item = {
-          image: "",
-          name: "",
-          description: "",
-          price: 0,
-          ingredients: [],
-        }
-      },
-      openEditDialog(item) {
-        console.log("Editing item:", item)
+    //  View details
+    openDialog(item) {
+      // Logic to open a dialog with item details
+      console.log("Opening dialog for:", item);
+    },
+    openFormDialog() {
+      this.foodForm = true;
+    },
+    async submitDish() {
+      !this.editForm
+        ? (this.item.ingredients = this.item.ingredients
+            .split(",")
+            .map((ingredient) => ingredient.trim()))
+        : (this.item.ingredients = this.item.ingredients);
+      this.editForm
+        ? await this.updateFood(this.item)
+        : await this.createFood(this.item);
+      this.foodForm = false;
+      this.item = {
+        image: "",
+        name: "",
+        description: "",
+        price: 0,
+        ingredients: [],
+      };
+    },
+    openEditDialog(item) {
+      console.log("Editing item:", item);
 
-        this.editForm = true
-        this.foodForm = true
-        this.item = { ...item }
-        // Logic to open a dialog for editing an item
-        console.log("Opening edit dialog for:", item)
-      },
-      closFormDialog() {
-        this.editForm = false
-        this.foodForm = false
-        this.item = {
-          image: "",
-          name: "",
-          description: "",
-          price: 0,
-          ingredients: [],
-        }
-      },
-      openConfermDialog(item) {
-        this.selectedItem = item
-        this.confirmDialog = true
-      },
-      closeConfirmDialog() {
-        this.confirmDialog = false
-      },
-      async removeFood(id) {
-        try {
-          await this.deleteFood(id)
-          this.confirmDialog = false
-          this.selectedItem = {}
-        } catch (error) {
-          console.error("Error deleting food:", error)
-        }
-      },
+      this.editForm = true;
+      this.foodForm = true;
+      this.item = { ...item };
+      // Logic to open a dialog for editing an item
+      console.log("Opening edit dialog for:", item);
     },
-    computed: {
-      ...mapState(["foods"]),
+    closFormDialog() {
+      this.editForm = false;
+      this.foodForm = false;
+      this.item = {
+        image: "",
+        name: "",
+        description: "",
+        price: 0,
+        ingredients: [],
+      };
     },
-    async mounted() {
+    openConfermDialog(item) {
+      this.selectedItem = item;
+      this.confirmDialog = true;
+    },
+    closeConfirmDialog() {
+      this.confirmDialog = false;
+    },
+    async removeFood(id) {
       try {
-        await this.fetchFood()
+        await this.deleteFood(id);
+        this.confirmDialog = false;
+        this.selectedItem = {};
       } catch (error) {
-        console.error("Error fetching foods:", error)
+        console.error("Error deleting food:", error);
       }
     },
-  }
+  },
+  computed: {
+    ...mapState(["foods"]),
+  },
+  async mounted() {
+    try {
+      await this.fetchFood();
+    } catch (error) {
+      console.error("Error fetching foods:", error);
+    }
+  },
+};
 </script>
