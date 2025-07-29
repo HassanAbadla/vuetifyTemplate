@@ -1,36 +1,29 @@
 <template>
   <v-container>
+  
     <div class="d-flex justify-space-between align-center mb-4">
       <h2>Food</h2>
       <v-btn @click="openFormDialog">Add a Dish</v-btn>
     </div>
-    <div class="d-flex">
-      <v-card
-        v-for="item in foods"
-        :key="item.id"
-        class="pa-2 ma-2"
-        @click="openDialog(item)"
-      >
-        <v-img max-height="150" max-width="250" :src="item.image"></v-img>
-        <div class="d-flex justify-space-between align-center">
-          <p>{{ item.name }}</p>
-          <p>{{ item.price }}</p>
-        </div>
-        <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn icon small @click.stop="openDialog(item)">
-            <v-icon>mdi-eye</v-icon>
-          </v-btn>
-          <v-btn icon small @click.stop="openEditDialog(item)">
-            <v-icon>mdi-pencil</v-icon>
-          </v-btn>
-          <v-btn icon small @click.stop="openConfermDialog(item)">
-            <v-icon>mdi-delete</v-icon>
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-    </div>
+    <CustomTable :headers="headers" :items="foods">
+  <!-- image -->
+  <template #item.image="{ item }">
+    <v-img :src="item.image" max-width="80" />
+  </template>
 
+  <!-- actions -->
+  <template #item.actions="{ item }">
+    <v-btn icon @click="openDialog(item)">
+      <v-icon>mdi-eye</v-icon>
+    </v-btn>
+    <v-btn icon @click="openEditDialog(item)">
+      <v-icon>mdi-pencil</v-icon>
+    </v-btn>
+    <v-btn icon @click="openConfermDialog(item)">
+      <v-icon>mdi-delete</v-icon>
+    </v-btn>
+  </template>
+</CustomTable>
     <!-- add dish dialog -->
     <v-dialog v-model="foodForm" max-width="600px" persistent>
       <v-card>
@@ -78,9 +71,12 @@
 </template>
 
 <script>
+
   import { mapState, mapActions } from "vuex"
+import CustomTable from "../components/CustomTable.vue"
   export default {
     name: "FoodPage",
+    components:{CustomTable},
     data() {
       return {
         foodForm: false,
@@ -94,6 +90,12 @@
           price: 0,
           ingredients: [],
         },
+        headers: [
+         { text: "name", value: "name" },
+         { text: "price", value: "price" },
+         { text: "image", value: "image" },
+         { text: "actions", value: "actions", sortable: false }
+],
       }
     },
     methods: {

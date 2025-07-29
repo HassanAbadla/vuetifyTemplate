@@ -6,9 +6,9 @@ import NuxtError from './components/nuxt-error.vue'
 import NuxtLoading from './components/nuxt-loading.vue'
 import NuxtBuildIndicator from './components/nuxt-build-indicator'
 
-import '..\\node_modules\\vuetify\\dist\\vuetify.css'
+import '../node_modules/vuetify/dist/vuetify.css'
 
-const _6f6c098b = () => import('..\\layouts\\default.vue'  /* webpackChunkName: "layouts/default" */).then(m => sanitizeComponent(m.default || m))
+const _6f6c098b = () => import('../layouts/default.vue'  /* webpackChunkName: "layouts/default" */).then(m => sanitizeComponent(m.default || m))
 
 let resolvedLayouts = {}
 const layouts = { "_default": _6f6c098b }

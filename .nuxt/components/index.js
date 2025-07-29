@@ -1,4 +1,5 @@
-export { default as CardComponent } from '../..\\components\\CardComponent.vue'
+export { default as CardComponent } from '../../components/CardComponent.vue'
+export { default as CustomTable } from '../../components/CustomTable.vue'
 
 // nuxt/nuxt.js#8607
 function wrapFunctional(options) {

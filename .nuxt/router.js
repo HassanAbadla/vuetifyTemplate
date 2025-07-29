@@ -4,14 +4,14 @@ import { normalizeURL, decode } from 'ufo'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
-const _620199ce = () => interopDefault(import('..\\pages\\Aorder.vue' /* webpackChunkName: "pages/Aorder" */))
-const _c519aeb8 = () => interopDefault(import('..\\pages\\ComponentLesson.vue' /* webpackChunkName: "pages/ComponentLesson" */))
-const _15c96782 = () => interopDefault(import('..\\pages\\food.vue' /* webpackChunkName: "pages/food" */))
-const _76f5eb89 = () => interopDefault(import('..\\pages\\inspire.vue' /* webpackChunkName: "pages/inspire" */))
-const _10b1ae88 = () => interopDefault(import('..\\pages\\orders\\index.vue' /* webpackChunkName: "pages/orders/index" */))
-const _162ceb1d = () => interopDefault(import('..\\pages\\products\\index.vue' /* webpackChunkName: "pages/products/index" */))
-const _7a06817e = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
-const _3e8b73a0 = () => interopDefault(import('..\\pages\\planets\\_id.vue' /* webpackChunkName: "pages/planets/_id" */))
+const _c5b5b880 = () => interopDefault(import('../pages/Aorder.vue' /* webpackChunkName: "pages/Aorder" */))
+const _74a6aef2 = () => interopDefault(import('../pages/ComponentLesson.vue' /* webpackChunkName: "pages/ComponentLesson" */))
+const _a9c6aa9e = () => interopDefault(import('../pages/food.vue' /* webpackChunkName: "pages/food" */))
+const _bf78c052 = () => interopDefault(import('../pages/inspire.vue' /* webpackChunkName: "pages/inspire" */))
+const _69e7e10a = () => interopDefault(import('../pages/orders/index.vue' /* webpackChunkName: "pages/orders/index" */))
+const _c0faaf0c = () => interopDefault(import('../pages/products/index.vue' /* webpackChunkName: "pages/products/index" */))
+const _65b1a1e2 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
+const _994a2ffa = () => interopDefault(import('../pages/planets/_id.vue' /* webpackChunkName: "pages/planets/_id" */))
 
 const emptyFn = () => {}
 
@@ -26,35 +26,35 @@ export const routerOptions = {
 
   routes: [{
     path: "/Aorder",
-    component: _620199ce,
+    component: _c5b5b880,
     name: "Aorder"
   }, {
     path: "/ComponentLesson",
-    component: _c519aeb8,
+    component: _74a6aef2,
     name: "ComponentLesson"
   }, {
     path: "/food",
-    component: _15c96782,
+    component: _a9c6aa9e,
     name: "food"
   }, {
     path: "/inspire",
-    component: _76f5eb89,
+    component: _bf78c052,
     name: "inspire"
   }, {
     path: "/orders",
-    component: _10b1ae88,
+    component: _69e7e10a,
     name: "orders"
   }, {
     path: "/products",
-    component: _162ceb1d,
+    component: _c0faaf0c,
     name: "products"
   }, {
     path: "/",
-    component: _7a06817e,
+    component: _65b1a1e2,
     name: "index"
   }, {
     path: "/planets/:id?",
-    component: _3e8b73a0,
+    component: _994a2ffa,
     name: "planets-id"
   }],
 

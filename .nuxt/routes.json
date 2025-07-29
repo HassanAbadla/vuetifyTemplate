@@ -2,49 +2,49 @@
   {
     "name": "Aorder",
     "path": "/Aorder",
-    "component": "C:\\\\Users\\\\alaar\\\\OneDrive\\\\Desktop\\\\project\\\\vuetifyTemplate\\\\pages\\\\Aorder.vue",
+    "component": "/Users/admin/Desktop/new vue haneen/vuetifyTemplate/pages/Aorder.vue",
     "chunkName": "pages/Aorder"
   },
   {
     "name": "ComponentLesson",
     "path": "/ComponentLesson",
-    "component": "C:\\\\Users\\\\alaar\\\\OneDrive\\\\Desktop\\\\project\\\\vuetifyTemplate\\\\pages\\\\ComponentLesson.vue",
+    "component": "/Users/admin/Desktop/new vue haneen/vuetifyTemplate/pages/ComponentLesson.vue",
     "chunkName": "pages/ComponentLesson"
   },
   {
     "name": "food",
     "path": "/food",
-    "component": "C:\\\\Users\\\\alaar\\\\OneDrive\\\\Desktop\\\\project\\\\vuetifyTemplate\\\\pages\\\\food.vue",
+    "component": "/Users/admin/Desktop/new vue haneen/vuetifyTemplate/pages/food.vue",
     "chunkName": "pages/food"
   },
   {
     "name": "inspire",
     "path": "/inspire",
-    "component": "C:\\\\Users\\\\alaar\\\\OneDrive\\\\Desktop\\\\project\\\\vuetifyTemplate\\\\pages\\\\inspire.vue",
+    "component": "/Users/admin/Desktop/new vue haneen/vuetifyTemplate/pages/inspire.vue",
     "chunkName": "pages/inspire"
   },
   {
     "name": "orders",
     "path": "/orders",
-    "component": "C:\\\\Users\\\\alaar\\\\OneDrive\\\\Desktop\\\\project\\\\vuetifyTemplate\\\\pages\\\\orders\\\\index.vue",
+    "component": "/Users/admin/Desktop/new vue haneen/vuetifyTemplate/pages/orders/index.vue",
     "chunkName": "pages/orders/index"
   },
   {
     "name": "products",
     "path": "/products",
-    "component": "C:\\\\Users\\\\alaar\\\\OneDrive\\\\Desktop\\\\project\\\\vuetifyTemplate\\\\pages\\\\products\\\\index.vue",
+    "component": "/Users/admin/Desktop/new vue haneen/vuetifyTemplate/pages/products/index.vue",
     "chunkName": "pages/products/index"
   },
   {
     "name": "index",
     "path": "/",
-    "component": "C:\\\\Users\\\\alaar\\\\OneDrive\\\\Desktop\\\\project\\\\vuetifyTemplate\\\\pages\\\\index.vue",
+    "component": "/Users/admin/Desktop/new vue haneen/vuetifyTemplate/pages/index.vue",
     "chunkName": "pages/index"
   },
   {
     "name": "planets-id",
     "path": "/planets/:id?",
-    "component": "C:\\\\Users\\\\alaar\\\\OneDrive\\\\Desktop\\\\project\\\\vuetifyTemplate\\\\pages\\\\planets\\\\_id.vue",
+    "component": "/Users/admin/Desktop/new vue haneen/vuetifyTemplate/pages/planets/_id.vue",
     "chunkName": "pages/planets/_id"
   }
 ]

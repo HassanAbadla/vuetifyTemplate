@@ -5,22 +5,17 @@
         <h2>Orders</h2>
         <v-btn @click.stop="drawer = !drawer">Add an Order</v-btn>
       </div>
-      <v-data-table
-        :headers="headers"
-        :items="orderItems"
-        :items-per-page="5"
-        class="elevation-1"
-      >
-        <template v-slot:item.actions="{ item }">
-          <v-btn icon small @click.stop="openDialog(item)">
-            <v-icon small>mdi-eye</v-icon>
-          </v-btn>
-        </template>
-        <!-- image -->
-        <template v-slot:item.image="{ item }">
-          <v-img :src="item.food.image" max-height="50" max-width="50"></v-img>
-        </template>
-      </v-data-table>
+      <CustomTable :headers="headers" :items="processedOrderItems">
+
+        <template #item.image="{ item }">
+        <v-img :src="item.food.image" max-height="50" max-width="50" />
+       </template>
+       <template #item.actions="{ item }">
+        <v-btn icon small @click.stop="openDialog(item)">
+        <v-icon small>mdi-eye</v-icon>
+        </v-btn>
+       </template>
+      </CustomTable>
     </v-card>
     <v-navigation-drawer v-model="drawer" absolute temporary right width="500">
       <v-card class="pa-4 ma-2">
@@ -74,8 +69,10 @@
 
 <script>
 import { mapState, mapActions } from "vuex";
+import CustomTable from "../../components/CustomTable.vue";
 export default {
   name: "OrdersPage",
+  components:{CustomTable},
   data() {
     return {
       drawer: false,
@@ -88,7 +85,7 @@ export default {
       headers: [
         { text: "Order ID", value: "order_id" },
         { text: "Image", value: "image" },
-        { text: "item", value: "food.name" },
+        { text: "item", value: "name" },
         { text: "Quantity", value: "quantity" },
         { text: "Price", value: "price" },
         { text: "Actions", value: "actions", sortable: false },
@@ -119,6 +116,14 @@ export default {
   },
   computed: {
     ...mapState(["orders", "orderItems", "foods"]),
+    processedOrderItems(){
+      return this.orderItems.map(item =>{
+        return{
+          ...item,
+          name:item.food? item.food.name :""
+        }
+      })
+    }
   },
   mounted() {
     this.fetchFood();

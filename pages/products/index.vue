@@ -19,7 +19,8 @@
         </template>
         <template v-slot:item.images="{ item }">
           <v-img
-            v-for="image in item.images"
+            v-for="(image, index) in item.images"
+            :key="index"
             :src="image"
             max-height="50"
             max-width="50"
