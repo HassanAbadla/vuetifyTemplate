@@ -73,7 +73,7 @@
 <script>
 
   import { mapState, mapActions } from "vuex"
-import CustomTable from "../components/CustomTable.vue"
+  import CustomTable from "../components/CustomTable.vue"
   export default {
     name: "FoodPage",
     components:{CustomTable},

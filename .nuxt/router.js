@@ -9,6 +9,7 @@ const _74a6aef2 = () => interopDefault(import('../pages/ComponentLesson.vue' /* 
 const _a9c6aa9e = () => interopDefault(import('../pages/food.vue' /* webpackChunkName: "pages/food" */))
 const _bf78c052 = () => interopDefault(import('../pages/inspire.vue' /* webpackChunkName: "pages/inspire" */))
 const _69e7e10a = () => interopDefault(import('../pages/orders/index.vue' /* webpackChunkName: "pages/orders/index" */))
+const _067e0d4a = () => interopDefault(import('../pages/Orders2.vue' /* webpackChunkName: "pages/Orders2" */))
 const _c0faaf0c = () => interopDefault(import('../pages/products/index.vue' /* webpackChunkName: "pages/products/index" */))
 const _65b1a1e2 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 const _994a2ffa = () => interopDefault(import('../pages/planets/_id.vue' /* webpackChunkName: "pages/planets/_id" */))
@@ -44,6 +45,10 @@ export const routerOptions = {
     path: "/orders",
     component: _69e7e10a,
     name: "orders"
+  }, {
+    path: "/Orders2",
+    component: _067e0d4a,
+    name: "Orders2"
   }, {
     path: "/products",
     component: _c0faaf0c,

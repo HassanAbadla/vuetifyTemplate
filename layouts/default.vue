@@ -91,24 +91,29 @@ export default {
           to: "/ComponentLesson",
         },
         {
-          icon: "mdi-repeat",
+          icon: "mdi mdi-palette-outline",
           title: "Products",
           to: "/products",
         },
         {
-          icon: "mdi-repeat",
+          icon: "mdi mdi-food",
           title: "Food",
           to: "/food",
         },
         {
-          icon: "mdi-repeat",
+          icon: "mdi mdi-order-bool-descending-variant",
           title: "Orders",
           to: "/orders",
         },
         {
-          icon: "mdi-repeat",
+          icon: "mdi mdi-order-bool-descending-variant",
           title: "AOrders",
           to: "/Aorder",
+        },
+        {
+          icon: "mdi mdi-human-greeting",
+          title: "Orders2",
+          to: "/Orders2",
         },
       ],
       miniVariant: false,

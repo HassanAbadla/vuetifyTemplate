@@ -3,48 +3,63 @@
     "name": "Aorder",
     "path": "/Aorder",
     "component": "/Users/admin/Desktop/new vue haneen/vuetifyTemplate/pages/Aorder.vue",
-    "chunkName": "pages/Aorder"
+    "chunkName": "pages/Aorder",
+    "_name": "_c5b5b880"
   },
   {
     "name": "ComponentLesson",
     "path": "/ComponentLesson",
     "component": "/Users/admin/Desktop/new vue haneen/vuetifyTemplate/pages/ComponentLesson.vue",
-    "chunkName": "pages/ComponentLesson"
+    "chunkName": "pages/ComponentLesson",
+    "_name": "_74a6aef2"
   },
   {
     "name": "food",
     "path": "/food",
     "component": "/Users/admin/Desktop/new vue haneen/vuetifyTemplate/pages/food.vue",
-    "chunkName": "pages/food"
+    "chunkName": "pages/food",
+    "_name": "_a9c6aa9e"
   },
   {
     "name": "inspire",
     "path": "/inspire",
     "component": "/Users/admin/Desktop/new vue haneen/vuetifyTemplate/pages/inspire.vue",
-    "chunkName": "pages/inspire"
+    "chunkName": "pages/inspire",
+    "_name": "_bf78c052"
   },
   {
     "name": "orders",
     "path": "/orders",
     "component": "/Users/admin/Desktop/new vue haneen/vuetifyTemplate/pages/orders/index.vue",
-    "chunkName": "pages/orders/index"
+    "chunkName": "pages/orders/index",
+    "_name": "_69e7e10a"
+  },
+  {
+    "name": "Orders2",
+    "path": "/Orders2",
+    "component": "/Users/admin/Desktop/new vue haneen/vuetifyTemplate/pages/Orders2.vue",
+    "chunkName": "pages/Orders2",
+    "_name": "_067e0d4a"
   },
   {
     "name": "products",
     "path": "/products",
     "component": "/Users/admin/Desktop/new vue haneen/vuetifyTemplate/pages/products/index.vue",
-    "chunkName": "pages/products/index"
+    "chunkName": "pages/products/index",
+    "_name": "_c0faaf0c"
   },
   {
     "name": "index",
     "path": "/",
     "component": "/Users/admin/Desktop/new vue haneen/vuetifyTemplate/pages/index.vue",
-    "chunkName": "pages/index"
+    "chunkName": "pages/index",
+    "_name": "_65b1a1e2"
   },
   {
     "name": "planets-id",
     "path": "/planets/:id?",
     "component": "/Users/admin/Desktop/new vue haneen/vuetifyTemplate/pages/planets/_id.vue",
-    "chunkName": "pages/planets/_id"
+    "chunkName": "pages/planets/_id",
+    "_name": "_994a2ffa"
   }
 ]

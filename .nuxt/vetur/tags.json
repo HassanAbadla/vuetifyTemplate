@@ -4,5 +4,8 @@
   },
   "CustomTable": {
     "description": "Auto imported from components/CustomTable.vue"
+  },
+  "OrderForm": {
+    "description": "Auto imported from components/orderForm.vue"
   }
 }

@@ -8,3 +8,4 @@ You can directly use them in pages and other components without the need to impo
 
 - `<CardComponent>` | `<card-component>` (components/CardComponent.vue)
 - `<CustomTable>` | `<custom-table>` (components/CustomTable.vue)
+- `<OrderForm>` | `<order-form>` (components/orderForm.vue)
