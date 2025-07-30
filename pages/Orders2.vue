@@ -74,10 +74,10 @@
     async handleSubmit(orderData) {
       try {
         if (this.selectedOrder) {
-          // تحديث الطلب
+      
           await this.updateOrder({ id: this.selectedOrder.id, ...orderData })
         } else {
-          // إضافة طلب جديد
+        
           await this.addOrder(orderData)
         }
         await this.fetchOrders()
