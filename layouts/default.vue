@@ -110,6 +110,11 @@ export default {
           title: "AOrders",
           to: "/Aorder",
         },
+        {
+          icon: "mdi-repeat",
+          title: "Orders 2",
+          to: "/Orders2",
+        },
       ],
       miniVariant: false,
       right: true,
