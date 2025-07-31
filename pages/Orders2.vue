@@ -133,10 +133,23 @@ export default {
     },
 
     editOrderDialog(item) {
+      // Open the order form dialog for editing an existing order item
+      console.log("Editing order item:", item);
       this.openForm(item);
-      this.selectedOrder = item;
+      // Set the selected item for editing
+      this.SelectedItem = item;
+      //Populate the order form with the selected item's data
+      this.orderForm = {
+        order_id: item.order_id,
+        food_id: item.food.id,
+        quantity: item.quantity,
+        price: item.price,
+      };
       this.isEdit = true;
       this.dialog = true;
+      // Logic to open a dialog for editing an order item
+      console.log("Editing order item:", item);
+      console.log("Opening edit dialog for:", item);
     },
     // Method to view order details (optional, can be implemented as needed)
     // This can be used to open the form in view-only mode
@@ -163,6 +176,8 @@ export default {
     this.fetchOrders();
     this.fetchOrderItems();
     this.createOrderItem();
+    this.deleteOrder();
+    this.updateOrderItem();
   },
 };
 </script>

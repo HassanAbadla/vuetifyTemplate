@@ -3,63 +3,54 @@
     "name": "Aorder",
     "path": "/Aorder",
     "component": "C:\\\\Users\\\\alaar\\\\OneDrive\\\\Desktop\\\\project\\\\vuetifyTemplate\\\\pages\\\\Aorder.vue",
-    "chunkName": "pages/Aorder",
-    "_name": "_620199ce"
+    "chunkName": "pages/Aorder"
   },
   {
     "name": "ComponentLesson",
     "path": "/ComponentLesson",
     "component": "C:\\\\Users\\\\alaar\\\\OneDrive\\\\Desktop\\\\project\\\\vuetifyTemplate\\\\pages\\\\ComponentLesson.vue",
-    "chunkName": "pages/ComponentLesson",
-    "_name": "_c519aeb8"
+    "chunkName": "pages/ComponentLesson"
   },
   {
     "name": "food",
     "path": "/food",
     "component": "C:\\\\Users\\\\alaar\\\\OneDrive\\\\Desktop\\\\project\\\\vuetifyTemplate\\\\pages\\\\food.vue",
-    "chunkName": "pages/food",
-    "_name": "_15c96782"
+    "chunkName": "pages/food"
   },
   {
     "name": "inspire",
     "path": "/inspire",
     "component": "C:\\\\Users\\\\alaar\\\\OneDrive\\\\Desktop\\\\project\\\\vuetifyTemplate\\\\pages\\\\inspire.vue",
-    "chunkName": "pages/inspire",
-    "_name": "_76f5eb89"
+    "chunkName": "pages/inspire"
   },
   {
     "name": "orders",
     "path": "/orders",
     "component": "C:\\\\Users\\\\alaar\\\\OneDrive\\\\Desktop\\\\project\\\\vuetifyTemplate\\\\pages\\\\orders\\\\index.vue",
-    "chunkName": "pages/orders/index",
-    "_name": "_10b1ae88"
+    "chunkName": "pages/orders/index"
   },
   {
     "name": "Orders2",
     "path": "/Orders2",
     "component": "C:\\\\Users\\\\alaar\\\\OneDrive\\\\Desktop\\\\project\\\\vuetifyTemplate\\\\pages\\\\Orders2.vue",
-    "chunkName": "pages/Orders2",
-    "_name": "_459f4e08"
+    "chunkName": "pages/Orders2"
   },
   {
     "name": "products",
     "path": "/products",
     "component": "C:\\\\Users\\\\alaar\\\\OneDrive\\\\Desktop\\\\project\\\\vuetifyTemplate\\\\pages\\\\products\\\\index.vue",
-    "chunkName": "pages/products/index",
-    "_name": "_162ceb1d"
+    "chunkName": "pages/products/index"
   },
   {
     "name": "index",
     "path": "/",
     "component": "C:\\\\Users\\\\alaar\\\\OneDrive\\\\Desktop\\\\project\\\\vuetifyTemplate\\\\pages\\\\index.vue",
-    "chunkName": "pages/index",
-    "_name": "_7a06817e"
+    "chunkName": "pages/index"
   },
   {
     "name": "planets-id",
     "path": "/planets/:id?",
     "component": "C:\\\\Users\\\\alaar\\\\OneDrive\\\\Desktop\\\\project\\\\vuetifyTemplate\\\\pages\\\\planets\\\\_id.vue",
-    "chunkName": "pages/planets/_id",
-    "_name": "_3e8b73a0"
+    "chunkName": "pages/planets/_id"
   }
 ]
