@@ -8,7 +8,7 @@
       <v-card-text>
         <v-form ref="form" @submit.prevent="submitForm">
           <v-select
-            v-model="form.order_id"
+            v-model="form.orderId"
             :items="orders"
             item-text="name"
             item-value="id"
@@ -17,7 +17,7 @@
           />
 
          <v-select
-            v-model="form.food_id"
+            v-model="form.foodId"
             :items="foods"
             item-text="name"
             item-value="id"
@@ -66,8 +66,8 @@ export default {
   data() {
     return {
       form: {
-        order_id: null,
-        food_id: null,
+        orderId: null,
+        foodId: null,
         quantity: 1,
         price: 0,
       },
@@ -80,8 +80,8 @@ export default {
           this.form = { ...order };
         } else {
           this.form = {
-            order_id: null,
-            food_id: null,
+            orderId: null,
+            foodId: null,
             quantity: 1,
             price: 0,
           };

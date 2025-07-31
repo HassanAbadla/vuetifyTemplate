@@ -43,7 +43,12 @@ export const mutations = {
   removeOrder(state, id) {
     state.orders = state.orders.filter((order) => order.id !== id);
   },
-
+  updateOrder(state, updateOrder) {
+    const index = state.orders.findIndex((o) => o.id === updateOrder.id)
+    if (index !== -1) {
+      state.orders.splice(index, 1, updateOrder)
+    }
+  },
   setOrderItem(state, orderItem) {
     state.orderItems.push(orderItem);
   },
@@ -175,6 +180,10 @@ export const actions = {
     } catch (error) {
       console.error("Error fetching orders:", error);
     }
+  },
+
+  updateOrder({ commit }, updatedOrder) {
+    commit("UPDATE_ORDER", updatedOrder)
   },
 
   // order items

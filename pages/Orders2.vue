@@ -2,7 +2,7 @@
     <v-container>
       <div class="d-flex justify-space-between align-center mb-4">
         <h2>Orders 2</h2>
-        <v-btn @click="openForm(null)">Add Order</v-btn>
+        <v-btn color="primary" @click="openForm()">Add Order</v-btn>
       </div>
   <!--use custom table-->
       <custom-table
@@ -71,7 +71,7 @@
       }
     },
   methods:{
-    ...mapActions(['fetchOrders','fetchFoods','deleteOrder', 'addOrder', 'updateOrder']),
+    ...mapActions(['fetchOrders','fetchFoods','removeOrder', 'setOrders', 'updateOrder']),
 
     openForm(order) {
       if (order) {
