@@ -7,7 +7,7 @@
     <!-- Custom Table Component -->
     <custom-table :headers="headers" :items="orderItems">
       <template v-slot:item.image="{ item }">
-        <v-img :src="item.food.image" max-height="50" max-width="50"></v-img>
+        <v-img :src="item?.food?.image" max-height="50" max-width="50"></v-img>
       </template>
 
       <template v-slot:item.actions="{ item }">
@@ -117,12 +117,12 @@ export default {
     openForm(order = null) {
       // console.log("Open form clicked");
       this.selectedOrder = order;
-      this.isEdit = !!order;
+      //this.isEdit = !!order;
       this.dialog = true;
     },
 
     handleSave(order) {
-      if (order.id) {
+      if (this.isEdit) {
         this.$store.dispatch("updateOrderItem", order);
       } else {
         this.$store.dispatch("createOrderItem", order);
@@ -130,6 +130,7 @@ export default {
       this.dialog = false;
       this.selectedOrder = null;
       this.fetchOrderItems();
+      this.isEdit = false;
     },
 
     editOrderDialog(item) {
@@ -175,9 +176,9 @@ export default {
     this.fetchFood();
     this.fetchOrders();
     this.fetchOrderItems();
-    this.createOrderItem();
-    this.deleteOrder();
-    this.updateOrderItem();
+    //this.createOrderItem();
+    //this.deleteOrder();
+    //this.updateOrderItem();
   },
 };
 </script>
