@@ -10,6 +10,26 @@
         <v-img :src="item?.food?.image" max-height="50" max-width="50"></v-img>
       </template>
 
+      <template v-slot:item.order_id="{ item }">
+        <v-menu bottom>
+          <template v-slot:activator="{ on, attrs }">
+            <v-btn v-bind="attrs" v-on="on" small text>
+              Order #{{ item.order_id }}
+              <v-icon right>mdi-menu-down</v-icon>
+            </v-btn>
+          </template>
+
+          <v-list>
+            <v-list-item
+              v-for="order in orders"
+              :key="order.id"
+              @click="updateOrderForItem(item, order.id)"
+            >
+              <v-list-item-title>Order #{{ order.id }}</v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu>
+      </template>
       <template v-slot:item.actions="{ item }">
         <v-btn icon small @click="viewOrderDetails(item)">
           <v-icon small>mdi-eye</v-icon>
@@ -68,11 +88,8 @@ import CustomTable from "@/components/CustomTable.vue";
 import orderForm from "@/components/orderForm.vue";
 
 export default {
-  // Define the component name
   name: "Orders2",
-  // Define the component's emits to allow parent components to listen for events
   components: { CustomTable, orderForm },
-  // Define props to receive dialog state and selected order
   props: {
     dialog: Boolean,
     selectedOrder: Object,
@@ -85,14 +102,12 @@ export default {
       isEdit: false,
       SelectedItem: null,
       viewDialog: false,
-      // Initialize the form data for creating or editing an order
       orderForm: {
         order_id: null,
         food_id: null,
         quantity: 1,
         price: 0,
       },
-      // Define the headers for the custom table
       headers: [
         { text: "Order ID", value: "order_id" },
         { text: "Image", value: "image" },
@@ -103,6 +118,9 @@ export default {
       ],
     };
   },
+  computed: {
+    ...mapState(["orders", "orderItems", "foods"]),
+  },
   methods: {
     ...mapActions([
       "fetchOrders",
@@ -112,12 +130,9 @@ export default {
       "deleteOrder",
       "updateOrderItem",
     ]),
-    // Open the order form dialog with the selected order or a new order
 
     openForm(order = null) {
-      // console.log("Open form clicked");
       this.selectedOrder = order;
-      //this.isEdit = !!order;
       this.dialog = true;
     },
 
@@ -134,12 +149,8 @@ export default {
     },
 
     editOrderDialog(item) {
-      // Open the order form dialog for editing an existing order item
-      console.log("Editing order item:", item);
       this.openForm(item);
-      // Set the selected item for editing
       this.SelectedItem = item;
-      //Populate the order form with the selected item's data
       this.orderForm = {
         order_id: item.order_id,
         food_id: item.food.id,
@@ -148,37 +159,45 @@ export default {
       };
       this.isEdit = true;
       this.dialog = true;
-      // Logic to open a dialog for editing an order item
-      console.log("Editing order item:", item);
-      console.log("Opening edit dialog for:", item);
     },
-    // Method to view order details (optional, can be implemented as needed)
-    // This can be used to open the form in view-only mode
+
     viewOrderDetails(item) {
       this.SelectedItem = item;
       this.viewDialog = true;
     },
-    // Method to remove an order item
+
     async removeOrder(item) {
       if (!confirm("Are you sure you want to delete this order?")) return;
       await this.deleteOrder({ id: item.order_id });
       this.$toast.success("Order deleted successfully");
-      // Refresh the order items after deletion
-      this.fetchOrderItems(); // refresh
+      this.fetchOrderItems();
       this.dialog = false;
     },
-  },
 
-  computed: {
-    ...mapState(["orders", "orderItems", "foods"]),
+    updateOrderForItem(item, newOrderId) {
+      const updatedItem = {
+        ...item,
+        order_id: newOrderId,
+        food_id: item.food.id,
+      };
+
+      this.$store
+        .dispatch("updateOrderItem", updatedItem)
+        .then(() => {
+          this.$toast.success("Order updated successfully");
+          this.SelectedItem = updatedItem;
+          this.fetchOrderItems();
+        })
+        .catch((err) => {
+          console.error("Error updating order:", err);
+          this.$toast.error("Failed to update order. Please try again.");
+        });
+    },
   },
   mounted() {
     this.fetchFood();
     this.fetchOrders();
     this.fetchOrderItems();
-    //this.createOrderItem();
-    //this.deleteOrder();
-    //this.updateOrderItem();
   },
 };
 </script>

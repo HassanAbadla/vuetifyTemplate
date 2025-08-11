@@ -115,6 +115,11 @@ export default {
           title: "Orders 2",
           to: "/Orders2",
         },
+        {
+          icon: "mdi-repeat",
+          title: "Orders Page",
+          to: "/OrdersPage",
+        },
       ],
       miniVariant: false,
       right: true,
