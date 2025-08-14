@@ -86,6 +86,18 @@
       <!-- API Demo Section -->
       <v-card class="mt-4">
         <v-card-title>API Demo</v-card-title>
+        <div class="chart-card">
+          <Chart
+            :type="'pie'"
+            :chart-data="chart1.chartData"
+            :chart-options="chart1.chartOptions"
+            :chart-title="chart1.chartTitle"
+            :chart-height="chart1.chartHeight"
+            :chart-width="chart1.chartWidth"
+            :chart-max-width="chart1.chartMaxWidth"
+          />
+        </div>
+
         <v-card-text>
           <!-- <v-btn color="success" :loading="loading" @click="fetchData">
             Test API Call
@@ -143,8 +155,13 @@
 
 <script>
 import { mapState, mapActions } from "vuex";
+import Chart from "@/components/chart.vue";
+
 export default {
   name: "IndexPage",
+  components: {
+    Chart,
+  },
   data() {
     return {
       search: "",
@@ -159,36 +176,50 @@ export default {
         { text: "isDestroyed", value: "isDestroyed" },
         { text: "Actions", value: "actions" },
       ],
+      chart1: {
+        chartTitle: "Planets Status",
+        chartHeight: 400,
+        chartWidth: "100%",
+        chartMaxWidth: 1000,
+        chartData: {
+          labels: ["Destroyed", "Not Destroyed"],
+          datasets: [
+            {
+              label: "Planets",
+              data: [], // Data will be set in mounted
+              backgroundColor: ["#FF69B4", "#3498DB"],
+              borderColor: "#ffffff",
+              borderWidth: 2,
+            },
+          ],
+        },
+        chartOptions: {
+          responsive: true,
+          plugins: {
+            legend: {
+              position: "bottom",
+            },
+          },
+        },
+      },
     };
+  },
+
+  computed: {
+    ...mapState(["planets"]),
   },
 
   methods: {
     ...mapActions(["fetchData"]),
-    // async fetchData() {
-    //   this.loading = true
-    //   this.apiResponse = []
-    //   this.apiError = []
+  },
 
-    //   try {
-    //     // Example API call using the configured axios instance
-    //     const response = await this.$axios.get(
-    //       "https://dragonball-api.com/api/planets"
-    //     )
-    //     this.apiResponse = response.data.items
-    //   } catch (error) {
-    //     this.apiError = error.message
-    //   } finally {
-    //     this.loading = false
-    //   }
-    // },
-  },
-  computed: {
-    ...mapState(["planets"]),
-  },
-  watcch: {},
   async mounted() {
     await this.fetchData();
-    // You can perform any initial setup here if needed
+
+    const destroyed = this.planets.filter((p) => p.isDestroyed).length;
+    const notDestroyed = this.planets.filter((p) => !p.isDestroyed).length;
+
+    this.chart1.chartData.datasets[0].data = [destroyed, notDestroyed];
   },
 };
 </script>
@@ -197,5 +228,18 @@ export default {
 .labelTrue {
   color: red;
   font-weight: bold;
+}
+.charts-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.chart-card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 </style>
