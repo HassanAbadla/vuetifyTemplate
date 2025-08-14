@@ -42,6 +42,13 @@
     "_name": "_459f4e08"
   },
   {
+    "name": "OrdersPage",
+    "path": "/OrdersPage",
+    "component": "C:\\\\Users\\\\alaar\\\\OneDrive\\\\Desktop\\\\project\\\\vuetifyTemplate\\\\pages\\\\OrdersPage.vue",
+    "chunkName": "pages/OrdersPage",
+    "_name": "_ce1a3556"
+  },
+  {
     "name": "products",
     "path": "/products",
     "component": "C:\\\\Users\\\\alaar\\\\OneDrive\\\\Desktop\\\\project\\\\vuetifyTemplate\\\\pages\\\\products\\\\index.vue",

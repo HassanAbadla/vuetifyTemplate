@@ -10,6 +10,7 @@ const _15c96782 = () => interopDefault(import('..\\pages\\food.vue' /* webpackCh
 const _76f5eb89 = () => interopDefault(import('..\\pages\\inspire.vue' /* webpackChunkName: "pages/inspire" */))
 const _10b1ae88 = () => interopDefault(import('..\\pages\\orders\\index.vue' /* webpackChunkName: "pages/orders/index" */))
 const _459f4e08 = () => interopDefault(import('..\\pages\\Orders2.vue' /* webpackChunkName: "pages/Orders2" */))
+const _ce1a3556 = () => interopDefault(import('..\\pages\\OrdersPage.vue' /* webpackChunkName: "pages/OrdersPage" */))
 const _162ceb1d = () => interopDefault(import('..\\pages\\products\\index.vue' /* webpackChunkName: "pages/products/index" */))
 const _7a06817e = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
 const _3e8b73a0 = () => interopDefault(import('..\\pages\\planets\\_id.vue' /* webpackChunkName: "pages/planets/_id" */))
@@ -49,6 +50,10 @@ export const routerOptions = {
     path: "/Orders2",
     component: _459f4e08,
     name: "Orders2"
+  }, {
+    path: "/OrdersPage",
+    component: _ce1a3556,
+    name: "OrdersPage"
   }, {
     path: "/products",
     component: _162ceb1d,
